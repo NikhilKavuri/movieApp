@@ -1,0 +1,104 @@
+.movie-container {
+    width: 40%;
+    height: fit-content;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .movie-description {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+  }
+  .movie-poster {
+    width: 150px;
+    height: max-content;
+    object-fit: cover;
+  }
+.playlist {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 5vh;
+}
+.public,
+.private {
+  width: fit-content;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  background-color: #b8cfdd;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vw;
+  width: 80%;
+  /* border: 1px solid grey; */
+  height: fit-content;
+  position: absolute;
+  left: calc(20% - 10rem);
+}
+.search {
+  font-weight: 900;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 2rem;
+}
+#searchInput {
+  padding: 15px;
+  border-radius: 10px;
+  outline: #526d82;
+  width: 40vw;
+  border: 1px solid #526d82;
+  margin-left: 20px;
+  font-size: 1.2em;
+}
+.search-btn {
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #98b0c3;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.search-btn:hover {
+  transform: translateY(-1px);
+  transition: transform 0.5s ease;
+  background-color: #526d82;
+  color: #c0d2dd;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.view-btn{
+    width: fit-content;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    background-color: #b8cfdd;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+}

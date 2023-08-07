@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div>
+        <header class="heading">Movie App</header>
+      </div>
+      <div class="auth">
+        <div class="signup-container">
+          <a class="signup" href="./signup.html">SignUp</a>
+        </div>
+      </div>
+    </nav>
+    <div id="home">
+      <a class="home-link" href="./index.html">Home</a>
+    </div>
+    <section class="login-form">
+      <form onsubmit="handleLogin()">
+        <div class="form-container">
+            <h1>LOGIN</h1>
+          <div class="details">
+            <div class="username-container">
+              <label class="username" for="username"> Username </label>
+              <input type="text" id="username" placeholder="Username" />
+            </div>
+            <div class="password-container">
+              <label class="password" for="password">Password</label>
+              <input type="password" id="password" placeholder="Password" />
+            </div>
+          </div>
+          <div class="btn-container">
+            <button class="login-btn" type="submit">Login</button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <script src="./index.js"></script>
+  </body>
+</html>
