@@ -424,6 +424,9 @@ function handleSignUpError() {
 
 function handleLogout() {
   try {
+    const movieListContainer = document.querySelector(".movie-list");
+    movieListContainer.style.display = "none";
+    movieListContainer.innerHTML = "";
     localStorage.removeItem("login");
     localStorage.removeItem("userData");
     const logoutButton = document.querySelector(".logout");
