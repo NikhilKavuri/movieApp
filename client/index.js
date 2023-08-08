@@ -314,7 +314,7 @@ document
         if (data.message !== "User not exists") {
           localStorage.setItem("login", JSON.stringify(true));
           localStorage.setItem("userData", JSON.stringify(data));
-          window.location.href = "/client/index.html";
+          window.location.href = "/index.html";
         } else {
           handleLoginError("User not exists");
         }
@@ -374,7 +374,7 @@ async function handleSignUp() {
         hideLoadingSpinner();
         localStorage.setItem("login", JSON.stringify(true));
         localStorage.setItem("userData", JSON.stringify(data));
-        window.location.href = "/client/index.html";
+        window.location.href = "/index.html";
       }
     } else {
       handleSignUpError();
