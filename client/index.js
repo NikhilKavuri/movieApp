@@ -174,9 +174,6 @@ const handlePrivatePlaylist = async () => {
 };
 
 const handleViewPublicPlaylist = async () => {
-  const movieListContainer = document.querySelector(".movie-list");
-  movieListContainer.style.display = "flex";
-  movieListContainer.innerHTML = "";
   showLoadingSpinner();
   const response = await fetch("https://movieapp-ntfu.onrender.com/viewpublic", {
     method: "GET",
@@ -189,7 +186,9 @@ const handleViewPublicPlaylist = async () => {
   if (response.ok) {
     const data = await response.json();
     hideLoadingSpinner();
-    console.log(data);
+    const movieListContainer = document.querySelector(".movie-list");
+    movieListContainer.style.display = "grid";
+    movieListContainer.innerHTML = "";
     data.forEach((movie) => {
       const movieContainer = document.createElement("div");
       movieContainer.className = "movie-container";
