@@ -1,4 +1,4 @@
-// JavaScript
+
 window.addEventListener("load", checkLogin);
 function showLoadingSpinner() {
   const toastDisplay = document.getElementById("toast");
@@ -17,12 +17,10 @@ function checkLogin() {
   const signupButton = document.querySelector(".signup");
 
   if (loginStatus === true) {
-    // User is logged in, show logout button and hide login and signup buttons
     logoutButton.style.display = "inline-block";
     loginButton.style.display = "none";
     signupButton.style.display = "none";
   } else {
-    // User is not logged in, show login and signup buttons and hide logout button
     logoutButton.style.display = "none";
     loginButton.style.display = "inline-block";
     signupButton.style.display = "inline-block";
@@ -195,7 +193,7 @@ const handleViewPublicPlaylist = async () => {
     movieListContainer.innerHTML = "";
     data.forEach((movie) => {
       const movieContainer = document.createElement("div");
-      movieContainer.className = "movie-container";
+      movieContainer.className = "movie-box";
       movieContainer.style.display = "flex";
       const poster = document.createElement("img");
       poster.className = "movie-poster";
@@ -263,7 +261,7 @@ const handleViewPrivatePlaylist = async () => {
 
       data.forEach((movie) => {
         const movieContainer = document.createElement("div");
-        movieContainer.className = "movie-container";
+        movieContainer.className = "movie-box";
         movieContainer.style.display = "flex";
         const poster = document.createElement("img");
         poster.className = "movie-poster";
