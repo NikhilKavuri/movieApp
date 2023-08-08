@@ -45,7 +45,7 @@ const handleSearch = async () => {
     try {
       toastDisplay.style.display = "block";
       movieListContainer.style.display = "none";
-      const response = await fetch("http://localhost:5000/movie", {
+      const response = await fetch("https://movieapp-ntfu.onrender.com/movie", {
         method: "POST",
         mode: "cors",
         headers: {
@@ -100,7 +100,7 @@ const handlePublicPlaylist = async () => {
     }, 2000);
   } else {
     showLoadingSpinner();
-    const response = await fetch("http://localhost:5000/publicplaylist", {
+    const response = await fetch("https://movieapp-ntfu.onrender.com/publicplaylist", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -143,7 +143,7 @@ const handlePrivatePlaylist = async () => {
         addMessage.style.display = "none";
       }, 2000);
     } else {
-      const response = await fetch("http://localhost:5000/privateplaylist", {
+      const response = await fetch("https://movieapp-ntfu.onrender.com/privateplaylist", {
         method: "POST",
         mode: "cors",
         headers: {
@@ -178,7 +178,7 @@ const handleViewPublicPlaylist = async () => {
   movieListContainer.style.display = "flex";
   movieListContainer.innerHTML = "";
   showLoadingSpinner();
-  const response = await fetch("http://localhost:5000/viewpublic", {
+  const response = await fetch("https://movieapp-ntfu.onrender.com/viewpublic", {
     method: "GET",
     mode: "cors",
     headers: {
@@ -240,7 +240,7 @@ const handleViewPrivatePlaylist = async () => {
   if (userData) {
     const userId = userData._id;
     showLoadingSpinner();
-    const response = await fetch("http://localhost:5000/viewprivate", {
+    const response = await fetch("https://movieapp-ntfu.onrender.com/viewprivate", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -322,7 +322,7 @@ async function handleLogin() {
   clearInputFields();
 
   try {
-    const response = await fetch("http://localhost:5000/login", {
+    const response = await fetch("https://movieapp-ntfu.onrender.com/login", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -381,7 +381,7 @@ async function handleSignUp() {
   clearInputFields();
 
   try {
-    const response = await fetch("http://localhost:5000/signup", {
+    const response = await fetch("https://movieapp-ntfu.onrender.com/signup", {
       method: "POST",
       mode: "cors",
       headers: {
