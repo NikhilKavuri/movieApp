@@ -147,7 +147,7 @@ const handlePrivatePlaylist = async () => {
       }, 2000);
     }
   } else {
-    window.location.href = "/client/login.html";
+    window.location.href = "/login.html";
   }
 };
 
@@ -276,7 +276,7 @@ const handleViewPrivatePlaylist = async () => {
       console.log("Error while getting the data");
     }
   } else {
-    window.location.href = "/client/login.html";
+    window.location.href = "/login.html";
   }
 };
 
