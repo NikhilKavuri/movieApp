@@ -89,19 +89,30 @@ const handlePublicPlaylist = async () => {
     poster: document.querySelector(".movie-poster").getAttribute("src"),
     type: "public",
   };
-  showLoadingSpinner();
-  const response = await fetch("http://localhost:5000/publicplaylist", {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(movieData),
-  });
-  if (response.ok) {
-    const data = await response.json();
-    hideLoadingSpinner();
-    console.log(data);
+  if (movieData.title === "Title" && movieData.genre === "genre") {
+    const addMessage = document.getElementById("add-message");
+    addMessage.style.display = "flex";
+    addMessage.textContent = "Please Search a movie to add";
+    addMessage.style.backgroundColor = "#F24C3D";
+    addMessage.style.color = "white";
+    setTimeout(() => {
+      addMessage.style.display = "none";
+    }, 2000);
+  } else {
+    showLoadingSpinner();
+    const response = await fetch("http://localhost:5000/publicplaylist", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(movieData),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      hideLoadingSpinner();
+      console.log(data);
+    }
   }
 };
 
@@ -121,30 +132,41 @@ const handlePrivatePlaylist = async () => {
       poster: document.querySelector(".movie-poster").getAttribute("src"),
       type: "private",
     };
-    // Send a post request to the backend for storing the public playlist
-    const response = await fetch("http://localhost:5000/privateplaylist", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(movieData),
-    });
-    if (response.ok) {
-      const data = await response.json();
-      hideLoadingSpinner();
+    if (movieData.title === "Title" && movieData.genre === "genre") {
       const addMessage = document.getElementById("add-message");
-      if (data.message === "Movie already exists in Private") {
-        addMessage.style.display = "flex";
-        addMessage.textContent = data.message;
-        addMessage.style.backgroundColor = "#F3AA60";
-        addMessage.style.color = "white";
-      }
       addMessage.style.display = "flex";
-      addMessage.textContent = data.message;
+      addMessage.textContent = "Please Search a movie to add";
+      addMessage.style.backgroundColor = "#F24C3D";
+      addMessage.style.color = "white";
+      hideLoadingSpinner()
       setTimeout(() => {
         addMessage.style.display = "none";
       }, 2000);
+    } else {
+      const response = await fetch("http://localhost:5000/privateplaylist", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(movieData),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        hideLoadingSpinner();
+        const addMessage = document.getElementById("add-message");
+        if (data.message === "Movie already exists in Private") {
+          addMessage.style.display = "flex";
+          addMessage.textContent = data.message;
+          addMessage.style.backgroundColor = "#F3AA60";
+          addMessage.style.color = "white";
+        }
+        addMessage.style.display = "flex";
+        addMessage.textContent = data.message;
+        setTimeout(() => {
+          addMessage.style.display = "none";
+        }, 2000);
+      }
     }
   } else {
     window.location.href = "/login.html";
@@ -290,58 +312,58 @@ document
   .getElementById("view-private")
   .addEventListener("click", handleViewPrivatePlaylist);
 
-  async function handleLogin() {
-    event.preventDefault();
-  
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-  
-    showLoadingSpinner();
-    clearInputFields();
-  
-    try {
-      const response = await fetch("http://localhost:5000/login", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        if (data.message !== "User not exists") {
-          localStorage.setItem("login", JSON.stringify(true));
-          localStorage.setItem("userData", JSON.stringify(data));
-          window.location.href = "/index.html";
-        } else {
-          handleLoginError("User not exists");
-        }
-        hideLoadingSpinner();
-        checkLogin();
+async function handleLogin() {
+  event.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  showLoadingSpinner();
+  clearInputFields();
+
+  try {
+    const response = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data.message !== "User not exists") {
+        localStorage.setItem("login", JSON.stringify(true));
+        localStorage.setItem("userData", JSON.stringify(data));
+        window.location.href = "/index.html";
       } else {
-        console.log("Login failed");
-        handleLoginError("Login Failed");
-        hideLoadingSpinner();
+        handleLoginError("User not exists");
       }
-    } catch (err) {
-      console.log(err);
+      hideLoadingSpinner();
+      checkLogin();
+    } else {
+      console.log("Login failed");
+      handleLoginError("Login Failed");
+      hideLoadingSpinner();
     }
+  } catch (err) {
+    console.log(err);
   }
-  
-  function handleLoginError(message) {
-    const addMessage = document.getElementById("add-message");
-    hideLoadingSpinner();
-    addMessage.style.display = "flex";
-    addMessage.textContent = message;
-    addMessage.style.backgroundColor = "#F3AA60";
-    addMessage.style.color = "white";
-    setTimeout(() => {
-      addMessage.style.display = "none";
-    }, 2000);
-  }
-  
+}
+
+function handleLoginError(message) {
+  const addMessage = document.getElementById("add-message");
+  hideLoadingSpinner();
+  addMessage.style.display = "flex";
+  addMessage.textContent = message;
+  addMessage.style.backgroundColor = "#F3AA60";
+  addMessage.style.color = "white";
+  setTimeout(() => {
+    addMessage.style.display = "none";
+  }, 2000);
+}
+
 async function handleSignUp() {
   event.preventDefault();
 
