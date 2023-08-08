@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const movieSchema = mongoose.Schema({
+    userId:{
+        type:String,
+        required: true,
+    },
     title: {
         type: String,
         required: true,
@@ -21,6 +25,14 @@ const movieSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    poster:{
+        type:String,
+        required: true
+    },
+    type:{
+        type:String,
+        required:true
+    }
 });
 
 const Movie = mongoose.model("Movie", movieSchema);

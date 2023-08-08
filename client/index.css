@@ -1,3 +1,18 @@
+#add-message{
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(127, 255, 140);
+  color: green;
+  position: fixed;
+  bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 .movie-container {
     width: 40%;
     height: fit-content;
@@ -20,6 +35,16 @@
     height: max-content;
     object-fit: cover;
   }
+  .movie-list{
+    width: 70%;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 5vh;
+    padding: 20px;
+
+    }
 .playlist {
   display: flex;
   justify-content: space-between;

@@ -51,6 +51,7 @@ body {
 }
 .login-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 50vh;
@@ -76,26 +77,6 @@ body {
 
 .signup-container {
   margin-left: 5px;
-}
-.movie-container {
-  width: 30%;
-  height: fit-content;
-  border: 1px solid;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-.movie-description {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  width: 50%;
-}
-.movie-poster {
-  width: 150px;
-  height: max-content;
-  object-fit: cover;
 }
 .navbar {
   display: flex;

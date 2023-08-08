@@ -18,7 +18,7 @@
           <a class="login" href="./login.html">Login</a>
         </div>
         <div class="signup-container">
-          <a class="signup" href="./login.html">SignUp</a>
+          <a class="signup" href="./signup.html">SignUp</a>
         </div>
         <a class="logout" onclick="handleLogout()">Logout</a>
       </div>
@@ -33,10 +33,10 @@
         <button class="public" onclick="handlePublicPlaylist()">
           Add to public Playlist
         </button>
-        <button class="private">Add to Private Playlist</button>
+        <button class="private" onclick="handlePrivatePlaylist()">Add to Private Playlist</button>
         <div>
             <button class="view-btn" onclick="handleViewPublicPlaylist()">View Public</button>
-            <button class="view-btn" onclick="handleViewPublicPlaylist()">View Private</button>
+            <button id="view-private" class="view-btn" onclick="handleViewPrivatePlaylist()">View Private</button>
           </div>
       </div>
       <div class="movie-container">
@@ -50,7 +50,10 @@
         </div>
       </div>
       <div id="toast"></div>
+      <div id="add-message"><span>Added Success</span></div>
+      <div class="movie-list"></div>
+
     </section>
-    <footer class="footer">Made by Nikhil</footer>
+    <!-- <footer class="footer">Made by Nikhil</footer> -->
   </body>
 </html>
