@@ -61,6 +61,10 @@ const handleSearch = async () => {
         movieContainer.style.display = "flex";
         for (const poster of posterSrc) {
           poster.setAttribute("src", data.Poster);
+          poster.style.display = "inline";
+          poster.style.objectFit = "cover";
+          poster.style.width = "150px";
+          poster.style.height = "200px";
         }
         title.textContent = `Title: ${data.Title}`;
         year.textContent = `Year: ${data.Year}`;
@@ -264,6 +268,10 @@ const handleViewPrivatePlaylist = async () => {
         const poster = document.createElement("img");
         poster.className = "movie-poster";
         poster.setAttribute("src", movie.poster);
+        poster.style.display = "inline";
+        poster.style.objectFit = "cover";
+        poster.style.width = "150px";
+        poster.style.height = "200px";
         movieContainer.appendChild(poster);
 
         const description = document.createElement("div");
