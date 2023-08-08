@@ -216,6 +216,11 @@
     margin-top: 10vh;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
+  .movie-poster {
+    width: 100px;
+    height: max-content;
+    object-fit: cover;
+  }
 }
 @media screen and (min-width:461px) and (max-width:600px) {
   #searchInput {

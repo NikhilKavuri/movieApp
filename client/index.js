@@ -197,6 +197,7 @@ const handleViewPublicPlaylist = async () => {
       poster.className = "movie-poster";
       poster.setAttribute("src", movie.poster);
       poster.style.display = "inline";
+      poster.style.objectFit = "cover"
       movieContainer.appendChild(poster);
 
       const description = document.createElement("div");
